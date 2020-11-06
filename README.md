@@ -1,5 +1,5 @@
 <p align="center"><img width=12.5% src="LOGO"></p>
-<p align="center"><img width=60% src="COOL GIF HERE"></p>
+<p align="center"><img width=60% src="training_progress.gif></p>
 
 
 ## Overview
