@@ -22,6 +22,13 @@ bash
 git clone https://github.com/StrudelTAU/ShallowTransitsDL
 
 
+## Dependencies
+tensorflow 1.1.0
+keras 2.0.8
+tqdm
+astropy
+batman-package
+
 ## Running the Code
 To run the code, first run the preprocessing notebook: Strudel_Astropy_Preprocess.ipynb
 Then, use the network training notebook: Strudel_Astropy_GAN_training.ipynb 
