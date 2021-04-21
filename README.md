@@ -7,35 +7,50 @@
 The code to reproduce the results of:
 Shallow Transits --- Deep Learning II: Identify Individual Exoplanetary Transits in Red Noise using Deep Learning.
 
-<p align="center"><img width=95% src="Example PLOT2"></p>
-
-<br>
-
 ## Visualize the Learning Process
-<img src="COOL GIF 2" width=40%>
+<img src="training_progress.gif" width=40%>
 
 <br>
-
-
-## Latest Development Changes
-bash
-git clone https://github.com/StrudelTAU/ShallowTransitsDL
 
 
 ## Dependencies
-tensorflow 1.1.0
-keras 2.0.8
+Tensorflow 1.1.0
+
+Keras 2.0.8
+
 tqdm
+
 astropy
+
 batman-package
 
 ## Running the Code
 To run the code, first run the preprocessing notebook: Strudel_Astropy_Preprocess.ipynb
-Then, use the network training notebook: Strudel_Astropy_GAN_training.ipynb 
+Then, use the network training notebook: Strudel_Astropy_GAN_training.ipynb
+For results of a pure transits classifier run: Strudel_Astropy_Only_Classifier.ipynb 
 
 #### Output
-text
-RESULTS EXAMPLE HERE
+Strudel_Astropy_Preprocess: 
+total_*_sim.npy - Files containing data about all lightcurves both with and without transits.
+total_*_sim_train.npy / total_*_sim_test.npy - Files containing a small subset (20000 / 10000) of the above data for training/testing the model.
+total_*_sim_true.npy - Files containing only lightcurves with tranits from the full data above.
+total_*_sim_train_true.npy / total_*_sim_test_true.npy - Files containing a small subset (20000 / 10000) of the above transit only data for training/testing the model.
+
+Strudel_Astropy_GAN_training:
+transit_parameters.npy / transit_parameters.csv - predicted transit parameters by the GAN and processing pipeline.
+real_classification.npy / real_classification.csv - ground truth values for transit data.
+predicted_classification.npy / predicted_classification.csv - predictions for transit data.
+predicted_transits.npy - predicted segmentations for the transits.
+real_transits.npy - real binary segmentations for the transits.
+real_data.npy - real full data for the predicted lightcurves.
+ROC_AUC_FULL.csv - ROC curve points for the classifier.
+transit_parameters.npy / transit_parameters.csv - transit parameter estimations for all lightcurves.
+
+img_*_test.png - images of a single lightcurve segmentation results through the training process.
+img_ClassAUC_*_test.png - images of the ROC curve of the classifier through the training process.
+img_PAUC_*_test.png - images of the period detection success curves through the training process.
 
 
+Strudel_Astropy_Only_Classifier:
+ROC_AUC_FULL_only_classfier.csv - ROC curve points for the classifier.
 #### Bibtex
