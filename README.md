@@ -1,5 +1,6 @@
-<p align="center"><img width=12.5% src="LOGO"></p>
 <p align="center"><img width=60% src="training_progress.gif"></p>
+<a href="https://zenodo.org/badge/latestdoi/224247579"><img src="https://zenodo.org/badge/224247579.svg" alt="DOI"></a>
+
 
 
 ## Overview
