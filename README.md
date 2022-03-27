@@ -75,3 +75,20 @@ Strudel_Astropy_Only_Classifier:
 
 ROC_AUC_FULL_only_classfier.csv - ROC curve points for the classifier.
 #### Bibtex
+{https://doi.org/10.48550/arxiv.2203.08017,
+  doi = {10.48550/ARXIV.2203.08017},
+  
+  url = {https://arxiv.org/abs/2203.08017},
+  
+  author = {Dvash, Elad and Peleg, Yam and Zucker, Shay and Giryes, Raja},
+  
+  keywords = {Instrumentation and Methods for Astrophysics (astro-ph.IM), FOS: Physical sciences, FOS: Physical sciences},
+  
+  title = {Shallow Transits -- Deep Learning II: Identify Individual Exoplanetary Transits in Red Noise using Deep Learning},
+  
+  publisher = {arXiv},
+  
+  year = {2022},
+  
+  copyright = {Creative Commons Attribution 4.0 International}
+}
