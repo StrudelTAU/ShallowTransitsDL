@@ -75,7 +75,8 @@ Strudel_Astropy_Only_Classifier:
 
 ROC_AUC_FULL_only_classfier.csv - ROC curve points for the classifier.
 #### Bibtex
-{https://doi.org/10.48550/arxiv.2203.08017,
+```
+@misc{https://doi.org/10.48550/arxiv.2203.08017,
   doi = {10.48550/ARXIV.2203.08017},
   
   url = {https://arxiv.org/abs/2203.08017},
@@ -92,3 +93,4 @@ ROC_AUC_FULL_only_classfier.csv - ROC curve points for the classifier.
   
   copyright = {Creative Commons Attribution 4.0 International}
 }
+```
