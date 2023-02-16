@@ -9,29 +9,79 @@ The code to reproduce the results of:
 
 Shallow Transits --- Deep Learning II: Identify Individual Exoplanetary Transits in Red Noise using Deep Learning.
 
+16/02/2023: NEW! pytorch implementation, confirmed to reproduce results.
+
 ## Visualize the Learning Process
 <img src="training_progress.gif" width=40%>
 
 <br>
 
-
 ## Dependencies
-Tensorflow 1.1.0
 
-Keras 2.0.8
-
+### Pytorch
+pytorch 1.12.0
+torchvision 0.13.0
+torchaudio 0.12.0
 tqdm
-
 astropy
-
 batman-package
 
-## Running the Code
-To run the code, first run the preprocessing notebook: Strudel_Astropy_Preprocess.ipynb
+### OLD Tensorflow
+Tensorflow 1.1.0
+Keras 2.0.8
+tqdm
+astropy
+batman-package
 
-Then, use the network training notebook: Strudel_Astropy_GAN_training.ipynb
+## Data
+https://www.dropbox.com/s/opk4pbqoddz8smv/sample_TESS_sim_mag_bins.zip?dl=0
+magnitude files and an example file for extracting TESS downlink times included
+unzip this inside /data folder
+unzip /data/sample_TESS_sim_magnitudes.zip inside /data folder
+After preprocessing you can discard the extracted data files
 
-For results of a pure transits classifier run: Strudel_Astropy_Only_Classifier.ipynb 
+### Running the Code
+## Pytorch
+To run the code, run the file: /pytorch_impl/model.py --gpus=N_GPUS
+This file would run the preprocessing, train and test the model.
+#### Output
+outputs/output_y_pred.npy: predictions
+outputs/output_y_true.npy: gt transits
+outputs/output_x.npy: input lightcurves
+outputs/test_auc_chart.png: AUC chart for classification
+outputs/test_dice_snr.png: 2D histogram of Dice by SNR
+outputs/test_zoom_dice_snr.png: 2D histogram of Dice by SNR zoomed in to SNR = [1, 125], Dice=[0.75, 1.0]
+
+
+## Bibtex
+```
+@misc{https://doi.org/10.48550/arxiv.2203.08017,
+  doi = {10.48550/ARXIV.2203.08017},
+  
+  url = {https://arxiv.org/abs/2203.08017},
+  
+  author = {Dvash, Elad and Peleg, Yam and Zucker, Shay and Giryes, Raja},
+  
+  keywords = {Instrumentation and Methods for Astrophysics (astro-ph.IM), FOS: Physical sciences, FOS: Physical sciences},
+  
+  title = {Shallow Transits -- Deep Learning II: Identify Individual Exoplanetary Transits in Red Noise using Deep Learning},
+  
+  publisher = {arXiv},
+  
+  year = {2022},
+  
+  copyright = {Creative Commons Attribution 4.0 International}
+}
+```
+
+# OLD TF CODE!
+
+### OLD! Tensorflow
+To run the code, first run the preprocessing notebook: /tensorflow_impl/Strudel_Astropy_Preprocess.ipynb
+
+Then, use the network training notebook: /tensorflow_impl/Strudel_Astropy_GAN_training.ipynb
+
+For results of a pure transits classifier run: /tensorflow_impl/Strudel_Astropy_Only_Classifier.ipynb 
 
 #### Output
 Strudel_Astropy_Preprocess: 
@@ -74,23 +124,4 @@ img_PAUC_*_test.png - images of the period detection success curves through the 
 Strudel_Astropy_Only_Classifier:
 
 ROC_AUC_FULL_only_classfier.csv - ROC curve points for the classifier.
-#### Bibtex
-```
-@misc{https://doi.org/10.48550/arxiv.2203.08017,
-  doi = {10.48550/ARXIV.2203.08017},
-  
-  url = {https://arxiv.org/abs/2203.08017},
-  
-  author = {Dvash, Elad and Peleg, Yam and Zucker, Shay and Giryes, Raja},
-  
-  keywords = {Instrumentation and Methods for Astrophysics (astro-ph.IM), FOS: Physical sciences, FOS: Physical sciences},
-  
-  title = {Shallow Transits -- Deep Learning II: Identify Individual Exoplanetary Transits in Red Noise using Deep Learning},
-  
-  publisher = {arXiv},
-  
-  year = {2022},
-  
-  copyright = {Creative Commons Attribution 4.0 International}
-}
-```
+

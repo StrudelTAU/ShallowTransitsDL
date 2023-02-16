@@ -1,0 +1,5 @@
+data/sample_TESS_sim_mag_bins.zip
+data/sample_TESS_sim_mag_*.npy
+data/mag_*.csv
+data/TESS
+data/processed

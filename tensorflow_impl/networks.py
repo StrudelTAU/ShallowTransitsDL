@@ -46,8 +46,7 @@ def generator(gen_shape):
     x = Activation('relu')(x)
     encoded = x
 
-    decoder = encoded
-    x = Conv2D(64, (1, 5), padding='same')(decoder)
+    x = Conv2D(64, (1, 5), padding='same')(x)
     x = BatchNormalization()(x)
     x = Activation('relu')(x)
     m1 = x
