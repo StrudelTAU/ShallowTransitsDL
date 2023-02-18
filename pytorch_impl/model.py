@@ -9,7 +9,7 @@ from collections import OrderedDict
 from torch.utils.data import DataLoader, TensorDataset
 from pytorch_lightning.trainer import Trainer
 from utils import make_scatter, draw_auc_chart, draw_snr_dice_chart
-from datasets import preprocess_data, collate_fn_tuples
+from datasets import preprocess_data#, collate_fn_tuples
 import tensorboard
 
 class WGANGP(LightningModule):
@@ -187,7 +187,7 @@ class WGANGP(LightningModule):
 		self.pad = torchvision.transforms.Pad([0, 0, padding, 0])
 
 		t_dataset = TensorDataset(tensor_x, tensor_y, tensor_o)
-		return DataLoader(t_dataset, collate_fn=collate_fn_tuples, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
+		return DataLoader(t_dataset, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
 
 	def val_dataloader(self):
 		tensor_o = torch.Tensor(np.load('../data/processed/total_original_sim_val.npy'))
@@ -199,7 +199,7 @@ class WGANGP(LightningModule):
 		self.pad = torchvision.transforms.Pad([0, 0, padding, 0])
 
 		t_dataset = TensorDataset(tensor_x, tensor_y, tensor_o, tensor_snr)
-		return DataLoader(t_dataset, collate_fn=collate_fn_tuples, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
+		return DataLoader(t_dataset, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
 
 	def test_dataloader(self):
 		tensor_o = torch.Tensor(np.load('../data/processed/total_original_sim_test.npy'))
@@ -212,7 +212,7 @@ class WGANGP(LightningModule):
 		self.pad = torchvision.transforms.Pad([0, 0, padding, 0])
 
 		t_dataset = TensorDataset(tensor_x, tensor_y, tensor_o, tensor_snr)
-		return DataLoader(t_dataset, collate_fn=collate_fn_tuples, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
+		return DataLoader(t_dataset, batch_size=self.batch_size, shuffle=True, pin_memory=True, num_workers=8)
 
 
 def main(args) -> None:
